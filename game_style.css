@@ -1,0 +1,163 @@
+body {
+  background-color: rgb(197, 116, 44);
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+#start {
+  height: 90vh;
+  font-family: 'Bungee', cursive;
+  color: #2F4F4F;
+  position: relative;
+}
+
+#title {
+  font-size: 6rem;
+  perspective: 450px;
+}
+
+#title > p {
+  transform: rotateX( 45deg );
+  line-height: 0.75;
+  text-align: center;
+  color: #2F4F4F;
+}
+
+#start.playing {
+  margin-top: -90vh;
+  transition: margin-top 2s;
+}
+
+#start.playing + #game {
+  display: flex;
+}
+
+#game {
+  display: none;
+}
+
+#game .row {
+  width: 100%;
+}
+
+.container {
+  flex-wrap: wrap;
+}
+
+.game-card-wrapper {
+  perspective: 600px;
+  width: 75%;
+  padding-bottom: 75%;
+  position: relative;
+  margin: 1rem auto;
+}
+
+.game-card-wrapper:hover {
+  cursor: pointer;
+}
+
+.game-card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.game-card.flipped {
+  transform: rotateY( 180deg );
+}
+
+.front,
+.back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+.front {
+  background: linear-gradient(315deg, #C0C0C0, white);
+  font-size: 2rem;
+}
+
+.back {
+  transform: rotateY( 180deg );
+}
+
+.back > img {
+  height: 100%;
+  width: auto;
+}
+
+.front:hover{
+  border-color: red;
+  border-width: 5px;
+}
+.back:hover {
+  border-color: red;
+  border-width: 5px;
+}
+#current-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  font-family: 'Bungee', cursive;
+  color: #2F4F4F;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#end {
+  display: none;
+}
+
+#end.game-over {
+  display: flex;
+  position: absolute;
+  background-color: rgba(0,0,0,0.75);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  justify-content: space-around;
+  font-family: 'Bungee', cursive;
+  text-align: center;
+}
+
+#end h1 {
+  font-size: 8rem;
+}
+
+#end h4 {
+  font-size: 3rem;
+}
+
+@media (max-width: 992px) {
+  .game-card-wrapper {
+    width: 100%;
+    padding-bottom: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .game-card-wrapper {
+    width: 120%;
+    padding-bottom: 120%;
+  }
+}
